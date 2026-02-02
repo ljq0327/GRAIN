@@ -7,6 +7,17 @@ This project provides action recognition training code.
 - Python 3.8
 - PyTorch + CUDA (multi-GPU supported via `--gpu`)
 
+## Data Preparation
+### Download Datasets
+Please download the raw data or skeleton data from their official websites:
+
+| Dataset | Official Link | Description |
+| :--- | :--- | :--- |
+| **NTU RGB+D 60** | [Website](https://rose1.ntu.edu.sg/dataset/actionRecognition/) | Large-scale 3D human activity analysis dataset. |
+| **NTU RGB+D 120** | [Website](https://rose1.ntu.edu.sg/dataset/actionRecognition/) | An extension of NTU 60 with 120 action classes. |
+| **PKU-MMD** | [Website](https://struct002.github.io/PKUMMD/) | A large-scale benchmark for continuous multi-modality 3D action understanding. |
+| **N-UCLA** | [Website](https://wangjiangb.github.io/my_data.html) | Northwestern-UCLA Multiview Action 3D Dataset. |
+
 ## Training
 
 ### Launch Command
