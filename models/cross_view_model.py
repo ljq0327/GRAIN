@@ -308,10 +308,11 @@ class CrossViewModel(nn.Module):
         else:
             loss = fused_features.new_tensor(0.0)
 
-        with torch.no_grad():
-            import torch.distributed as dist
-            if (not dist.is_available()) or (not dist.is_initialized()) or dist.get_rank() == 0:
-                self.update_prototypes(feats.detach(), action_labels)
+        if self.training:
+            with torch.no_grad():
+                import torch.distributed as dist
+                if (not dist.is_available()) or (not dist.is_initialized()) or dist.get_rank() == 0:
+                    self.update_prototypes(feats.detach(), action_labels)
         return loss
     
     def compute_view_consistency_loss(self, refined_concepts, action_labels):
