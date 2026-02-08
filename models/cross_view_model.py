@@ -24,10 +24,10 @@ class CrossViewModel(nn.Module):
         
         # Loss weight parameter
         
-        self.consistency_weight = 0.05      # Guidance-Consistency Loss
-        self.auxiliary_weight = 0.10        # Auxiliary Classification Loss
-        self.view_consistency_weight = 0.25 # cross-view consistency loss
-        self.prototype_weight = 0.40        # prototype-based InfoNCE loss
+        self.consistency_weight = 1      # Guidance-Consistency Loss
+        self.auxiliary_weight = 1        # Auxiliary Classification Loss
+        self.view_consistency_weight = 1 # cross-view consistency loss
+        self.prototype_weight = 1        # prototype-based InfoNCE loss
         
         
         self.temperature = 0.07 
