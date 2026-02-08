@@ -272,10 +272,10 @@ def train_model(cfg, run_id, save_dir, use_cuda, args, writer):
         
         m = model.module if hasattr(model, 'module') else model
         if args.training_mode == 'CV':
-            m.view_consistency_weight = 0.25
-            m.prototype_weight        = 0.40
-            m.auxiliary_weight        = 0.10
-            m.temperature             = 0.07
+            m.view_consistency_weight = 1
+            m.prototype_weight        = 1
+            m.auxiliary_weight        = 1
+            m.temperature             = 1
 
         if args.optimizer == 'ADAM':
             optimizer = torch.optim.Adam(model.parameters(), lr=args.learning_rate, weight_decay=args.weight_decay)
