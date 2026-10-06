@@ -24,7 +24,7 @@ def build_config(dataset, cv_train_views=None, cv_test_views=None, training_mode
             cfg.test_annotations = 'data/NTU60Test_CVmap.csv'
         else: 
             cfg.train_annotations = 'data/NTU60Train_CSmap.csv'
-            cfg.test_annotations = 'data/NTU60Test_Csmap.csv'
+            cfg.test_annotations = 'data/NTU60Test_CSmap.csv'
         cfg.num_actions = 60
         # A second check is performed to ensure the viewing angle is correct.
         cfg.cv_train_views = cv_train_views if cv_train_views is not None else [2, 3]
