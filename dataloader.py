@@ -248,9 +248,9 @@ class CrossViewDataLoader(Dataset):
         cfg = build_config(self.dataset)
         
         if self.cross_view_type == 'CS':
-            grouped = df.groupby(['subject', 'action', 'confidence'])
+            grouped = df.groupby(['subject', 'action', 'confidence', 'repetition'])
             
-            for (subject, action, confidence), group in grouped:
+            for (subject, action, confidence, repetition), group in grouped:
                 cameras = group['camera'].dropna().unique()
                 
                 if len(cameras) >= 1:
@@ -264,14 +264,15 @@ class CrossViewDataLoader(Dataset):
                             'camera': sample['camera'],
                             'start': sample['start'],
                             'end': sample['end'],
-                            'confidence': sample['confidence']
+                            'confidence': sample['confidence'],
+                            'repetition': sample['repetition']
                         })
                     self.cross_view_groups.append(group_samples)
 
         elif self.cross_view_type == 'CV':
-            grouped = df.groupby(['subject', 'action', 'confidence'])
+            grouped = df.groupby(['subject', 'action', 'confidence', 'repetition'])
             
-            for (subject, action, confidence), group in grouped:
+            for (subject, action, confidence, repetition), group in grouped:
                 cameras = group['camera'].dropna().unique()
                 
                 selected_cameras = [cam for cam in sorted(cameras) 
@@ -288,7 +289,8 @@ class CrossViewDataLoader(Dataset):
                             'camera': sample['camera'],
                             'start': sample['start'],
                             'end': sample['end'],
-                            'confidence': sample['confidence']
+                            'confidence': sample['confidence'],
+                            'repetition': sample['repetition']
                         })
                     self.cross_view_groups.append(group_samples)
         
