@@ -202,7 +202,6 @@ def val_cross_view_multi_view_epoch(cfg, epoch, data_loader, model, writer, use_
     if writer:
         writer.add_scalar(f'MultiView_Validation/Loss', avg_loss, epoch)
         writer.add_scalar(f'MultiView_Validation/Consistency_Loss', avg_consistency_loss, epoch)
-        # writer.add_scalar(f'MultiView_Validation/Accuracy', accuracy, epoch)
 
     return accuracy
 
